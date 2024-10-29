@@ -1,0 +1,46 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\title{Análise de Desempenho de Tabelas Hash em Java}
+\author{Alejandro e Eduardo}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Introdução}
+Neste trabalho, implementamos diferentes tabelas hash em Java e analisamos seu desempenho em termos de tempo de busca e número de colisões. Usamos três funções hash: resto da divisão, multiplicação e dobramento, e realizamos testes com tamanhos de tabela variados.
+
+\section{Metodologia}
+Escolhemos três tamanhos para a tabela hash: 10, 100 e 1000. Para cada tamanho, geramos conjuntos de dados com 1 milhão, 5 milhões e 20 milhões de registros, onde cada registro consiste em um código de 9 dígitos. Medimos o tempo de inserção e busca, além do número de colisões.
+
+\section{Resultados}
+
+\subsection{Tabelas de Resultados}
+
+\begin{table}[h]
+    \centering
+    \caption{Resultados das buscas para diferentes tamanhos de tabela}
+    \begin{tabular}{@{}ccccccc@{}}
+        \toprule
+        Tamanho da Tabela & Quantidade de Registros & Média de Busca (ns) & Colisões \\ \midrule
+        10                & 1,000,000              & 4291712              & 999990   \\
+        10                & 5,000,000              & 4854746              & 4999990  \\
+        10                & 20,000,000             & 25308100             & 19999990 \\
+        100               & 1,000,000              & 783600               & 999900   \\
+        100               & 5,000,000              & 1279240              & 4999900  \\
+        100               & 20,000,000             & 2928700              & 19999900 \\
+        1000              & 1,000,000              & 135400               & 999000   \\
+        1000              & 5,000,000              & 61500                & 4999000  \\
+        1000              & 20,000,000             & 292400               & 19999000 \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Análise}
+Os resultados mostram que o aumento do tamanho da tabela hash reduz o número de colisões e melhora os tempos de busca. Para tabelas de tamanho 10, observamos um número extremamente alto de colisões, o que impactou negativamente a eficiência das buscas. Por outro lado, as tabelas de tamanho 100 e 1000 mostraram resultados significativamente melhores.
+
+\subsection{Conclusões}
+Este estudo destaca a importância da escolha do tamanho da tabela em estruturas hash. Um tamanho adequado em relação à quantidade de registros é crucial para minimizar colisões e otimizar a performance das operações.
+
+\end{document}
