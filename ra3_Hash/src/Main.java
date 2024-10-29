@@ -5,7 +5,7 @@ public class Main {
         // Definições
         int[] tamanhos = {10, 100, 1000};
         int[] quantidades = {1000000, 5000000, 20000000}; // Diferentes tamanhos de conjuntos de dados
-        String seed = "12345"; // Para reproduzibilidade
+        String seed = "42"; // Para reproduzibilidade
         Random random = new Random(seed.hashCode());
 
         for (int tamanho : tamanhos) {
